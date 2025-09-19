@@ -1,54 +1,109 @@
-<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
-- [x] Verify that the copilot-instructions.md file in the .github directory is created.
+# Portfolio Moderne - Instructions Copilot
 
-- [ ] Clarify Project Requirements
-	<!-- Ask for project type, language, and frameworks if not specified. Skip if already provided. -->
+## 📋 Informations du Projet
 
-- [ ] Scaffold the Project
-	<!--
-	Ensure that the previous step has been marked as completed.
-	Call project setup tool with projectType parameter.
-	Run scaffolding command to create project files and folders.
-	Use '.' as the working directory.
-	If no appropriate projectType is available, search documentation using available tools.
-	Otherwise, create the project structure manually using available file creation tools.
-	-->
+**Type de projet** : Portfolio Full Stack
+**Framework** : Next.js 14 avec Page Router
+**Base de données** : SQLite avec Prisma ORM
+**Styling** : Tailwind CSS + Framer Motion
+**Animations** : AOS (Animate On Scroll)
 
-- [ ] Customize the Project
-	<!--
-	Verify that all previous steps have been completed successfully and you have marked the step as completed.
-	Develop a plan to modify codebase according to user requirements.
-	Apply modifications using appropriate tools and user-provided references.
-	Skip this step for "Hello World" projects.
-	-->
+## 🎯 Objectif
 
-- [ ] Install Required Extensions
-	<!-- ONLY install extensions provided mentioned in the get_project_setup_info. Skip this step otherwise and mark as completed. -->
+Portfolio moderne pour développeur logiciel avec :
+- ✅ Design contemporain et responsive
+- ✅ Animations fluides et interactives
+- ✅ Interface d'administration complète
+- ✅ Base de données SQLite avec Prisma
+- ✅ Formulaire de contact fonctionnel
+- ✅ Optimisations SEO et performance
 
-- [ ] Compile the Project
-	<!--
-	Verify that all previous steps have been completed.
-	Install any missing dependencies.
-	Run diagnostics and resolve any issues.
-	Check for markdown files in project folder for relevant instructions on how to do this.
-	-->
+## 🛠️ Stack Technique
 
-- [ ] Create and Run Task
-	<!--
-	Verify that all previous steps have been completed.
-	Check https://code.visualstudio.com/docs/debugtest/tasks to determine if the project needs a task. If so, use the create_and_run_task to create and launch a task based on package.json, README.md, and project structure.
-	Skip this step otherwise.
-	 -->
+### Frontend
+- React 18 avec TypeScript
+- Next.js 14 (Page Router)
+- Tailwind CSS pour le styling
+- Framer Motion pour les animations
+- AOS pour les animations de scroll
+- Lucide React pour les icônes
 
-- [ ] Launch the Project
-	<!--
-	Verify that all previous steps have been completed.
-	Prompt user for debug mode, launch only if confirmed.
-	 -->
+### Backend
+- Next.js API Routes
+- Prisma ORM
+- SQLite (base de données)
+- Authentification JWT
+- Validation des formulaires
 
-- [ ] Ensure Documentation is Complete
-	<!--
-	Verify that all previous steps have been completed.
-	Verify that README.md and the copilot-instructions.md file in the .github directory exists and contains current project information.
-	Clean up the copilot-instructions.md file in the .github directory by removing all HTML comments.
-	 -->
+### Développement
+- TypeScript avec configuration stricte
+- ESLint avec règles Next.js
+- Hot reload avec Turbopack
+- Prisma Studio pour la base de données
+
+## 📁 Structure
+
+```
+src/
+├── components/     # Composants React réutilisables
+├── pages/          # Pages Next.js (Page Router)
+├── lib/            # Utilitaires (Prisma, auth)
+└── types/          # Types TypeScript
+```
+
+## 🧑‍💻 Règle d'architecture admin
+
+Toutes les pages du back-office (sous `/admin`) doivent toujours inclure le composant `AdminSidebar` pour garantir une navigation cohérente et une expérience utilisateur optimale dans l'administration.
+
+## 🚀 Commandes Importantes
+
+- `npm run dev` - Serveur de développement
+- `npx prisma studio` - Interface base de données
+- `npm run build` - Build de production
+
+## 🎨 Design System
+
+**Couleurs principales :**
+- Primary: Purple (purple-500 à purple-600)  
+- Secondary: Blue (blue-500 à blue-600)
+- Background: Slate (slate-900, slate-800)
+
+**Animations :**
+- AOS pour les entrées en scroll
+- Framer Motion pour les interactions
+- Transitions fluides sur tous les éléments
+
+## 📋 Fonctionnalités Complétées
+
+- [x] Configuration Next.js avec TypeScript
+- [x] Schéma Prisma avec modèles complets
+- [x] Composants UI modernes et responsives
+- [x] Animations AOS et Framer Motion
+- [x] API de contact fonctionnelle
+- [x] Seeding de base de données
+- [x] Build et déploiement optimisés
+- [x] Documentation complète
+
+## 🔧 Configuration Admin
+
+**Accès admin par défaut :**
+- Email: admin@portfolio.dev
+- Mot de passe: admin123
+
+**Interface admin pour :**
+- Gestion des projets
+- Gestion des compétences
+- Gestion des expériences
+- Consultation des messages
+
+## 📈 Optimisations
+
+- SSG (Static Site Generation) avec revalidation
+- Optimisation automatique des images Next.js
+- Code splitting automatique
+- CSS optimisé avec Tailwind
+- Métadonnées SEO complètes
+
+---
+
+**Status : ✅ Projet complété et fonctionnel**

@@ -1,0 +1,30 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Développer le Portfolio",
+			"type": "shell",
+			"command": "npm run dev",
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Ouvrir Prisma Studio",
+			"type": "shell",
+			"command": "npx prisma studio",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "debug"
+		},
+		{
+			"label": "Prisma Studio",
+			"type": "shell",
+			"command": "npx prisma studio",
+			"args": [],
+			"problemMatcher": [],
+			"group": "dev"
+		}
+	]
+}
