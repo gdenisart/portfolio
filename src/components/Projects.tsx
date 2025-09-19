@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Project } from '@/types';
+import ProjectsModalTrigger from './ProjectsModalTrigger';
 import { Github, ExternalLink, Calendar } from 'lucide-react';
 import Image from 'next/image';
 
@@ -201,24 +202,8 @@ export default function Projects({ projects }: ProjectsProps) {
           })}
         </div>
 
-        {/* View All Projects Link */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <motion.a
-            href="/projects"
-            className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span>Voir tous les projets</span>
-            <ExternalLink size={16} />
-          </motion.a>
-        </motion.div>
+        {/* View All Projects Modal Button */}
+        <ProjectsModalTrigger projects={projects} />
       </div>
     </section>
   );

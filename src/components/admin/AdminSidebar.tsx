@@ -18,7 +18,7 @@ function useUnreadMessagesCount() {
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LayoutDashboard, FolderOpen, Wrench, Briefcase, Mail, LogOut } from 'lucide-react';
-import { useAuth } from '@/lib/useAuth';
+import { useAuth, useAuthenticatedFetch } from '@/lib/useAuth';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -27,6 +27,7 @@ import { useEffect, useState } from 'react';
 export default function AdminSidebar() {
   const { admin, logout } = useAuth();
   const router = useRouter();
+  const authenticatedFetch = useAuthenticatedFetch();
   const [stats, setStats] = useState<DashboardStats>({
     projects: 0,
     skills: 0,
@@ -41,7 +42,7 @@ export default function AdminSidebar() {
     const loadStats = async () => {
       try {
         setIsLoading(true);
-        const res = await fetch('/api/stats');
+        const res = await authenticatedFetch('/api/stats');
         if (!res.ok) throw new Error('Erreur API stats');
         const data = await res.json();
         setStats({

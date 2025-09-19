@@ -39,10 +39,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Générer le token JWT
     const token = generateToken({
-      id: admin.id,
-      email: admin.email,
-      username: admin.username,
-      role: admin.role
+      admin: {
+        id: admin.id,
+        email: admin.email,
+        username: admin.username,
+        role: admin.role
+      }
     });
 
     // Retourner les informations d'admin (sans le mot de passe)

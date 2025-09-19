@@ -3,6 +3,7 @@ import { Pencil, Trash, Mail, MessagesSquareIcon } from 'lucide-react';
 import Link from 'next/link';
 import Head from 'next/head';
 import AdminSidebar from '@/components/admin/AdminSidebar';
+import { useAuthenticatedFetch } from '@/lib/useAuth';
 
 interface Message {
   id: number;
@@ -15,13 +16,14 @@ interface Message {
 }
 
 export default function AdminMessages() {
+  const authenticatedFetch = useAuthenticatedFetch();
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    fetch('/api/messages')
+    authenticatedFetch('/api/messages')
       .then(res => res.json())
       .then(data => {
         setMessages(data.messages || []);

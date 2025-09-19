@@ -1,10 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma';
+import { requireAuth, AuthenticatedRequest } from '@/lib/auth';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default requireAuth(async function handler(req: AuthenticatedRequest, res: NextApiResponse): Promise<void> {
   if (req.method !== 'GET') {
     res.setHeader('Allow', ['GET']);
-    return res.status(405).end(`Méthode ${req.method} non autorisée`);
+    res.status(405).end(`Méthode ${req.method} non autorisée`);
+    return;
   }
   try {
     const [projects, skills, experiences, messages] = await Promise.all([
@@ -17,4 +19,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } catch {
     res.status(500).json({ error: 'Erreur lors de la récupération des statistiques.' });
   }
-}
+});

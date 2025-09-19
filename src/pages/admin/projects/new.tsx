@@ -1,10 +1,7 @@
-import { useRouter } from 'next/router';
-import { useState, useRef } from 'react';
-import Head from 'next/head';
-import AdminSidebar from '@/components/admin/AdminSidebar';
 
 export default function AdminProjectNew() {
   const router = useRouter();
+  const authenticatedFetch = useAuthenticatedFetch();
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
   const [form, setForm] = useState({
@@ -52,9 +49,8 @@ export default function AdminProjectNew() {
     setSaving(true);
     setError('');
     try {
-      const res = await fetch('/api/projects', {
+      const res = await authenticatedFetch('/api/projects', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, technologies: JSON.stringify(form.technologies) })
       });
       if (!res.ok) throw new Error('Erreur lors de la création');
@@ -156,3 +152,8 @@ export default function AdminProjectNew() {
     </>
   );
 }
+import React, { useState, useRef } from 'react';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import AdminSidebar from '@/components/admin/AdminSidebar';
+import { useAuthenticatedFetch } from '@/lib/useAuth';
